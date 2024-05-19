@@ -23,6 +23,7 @@ app.use("/", express.static(path.join(__dirname, "/public")));
 app.use("/register", require("./routes/register"));
 app.use("/auth", require("./routes/auth"));
 app.use(verifyJWT);
+app.use("/movies", require("./routes/movieAPI/movies"));
 app.use("/users", require("./routes/getUsers"));
 
 app.use(errorHandler);

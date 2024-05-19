@@ -14,10 +14,10 @@ const createMovie = (req, res) => {
     id: movieDB.movies?.length
       ? movieDB.movies[movieDB.movies.length - 1].id + 1
       : 1,
-    movie: req.body.movie,
+    name: req.body.name,
   };
 
-  if (!newMovie.movie) {
+  if (!newMovie.name) {
     return res.status(400).json({ message: "Movie name is required!" });
   }
 
@@ -26,6 +26,7 @@ const createMovie = (req, res) => {
 };
 
 const updateMovie = (req, res) => {
+  console.log(req.body.name);
   const movie = movieDB.movies.find((mov) => mov.id === parseInt(req.body.id));
   if (!movie) {
     return res

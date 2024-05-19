@@ -5,7 +5,7 @@ const usersDB = {
   },
 };
 
-const bcrypt = require("bcrpyt");
+const bcrypt = require("bcrypt");
 
 const handleLogin = async (req, res) => {
   const { user, password } = req.body;

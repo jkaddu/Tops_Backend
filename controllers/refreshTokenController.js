@@ -11,8 +11,6 @@ require("dotenv").config();
 const handleRefreshToken = (req, res) => {
   const cookies = req.cookies;
   if (!cookies?.jwt) return res.sendStatus(401);
-  console.log(cookies.jwt);
-
   const refreshToken = cookies.jwt;
 
   const foundUser = usersDB.users.find(
@@ -29,7 +27,7 @@ const handleRefreshToken = (req, res) => {
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "3m" }
     );
-    res.json(accessToken);
+    res.json({ accessToken: accessToken });
   });
 };
 

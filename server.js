@@ -27,9 +27,12 @@ app.use("/", express.static(path.join(__dirname, "/public")));
 app.use("/register", require("./routes/register"));
 app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh"));
+app.use("/logout", require("./routes/logout"));
+
 app.use(verifyJWT);
 app.use("/movies", require("./routes/movieAPI/movies"));
 app.use("/users", require("./routes/getUsers"));
+
 // custom middleware for handling errors
 app.use(errorHandler);
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));

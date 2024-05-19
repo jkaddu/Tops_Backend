@@ -26,7 +26,6 @@ const createMovie = (req, res) => {
 };
 
 const updateMovie = (req, res) => {
-  console.log(req.body.name);
   const movie = movieDB.movies.find((mov) => mov.id === parseInt(req.body.id));
   if (!movie) {
     return res

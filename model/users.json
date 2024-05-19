@@ -1,1 +1,19 @@
-[{ "username": "jkaddu", "password": "man1234" }]
+[
+  { "username": "jkaddu", "password": "man1234" },
+  {
+    "username": "mike",
+    "password": "$2b$10$9f7t3FY12Lbj30c14t/e4u2RpM3c67un4zeO8d4wwkIe57dzCvoZO"
+  },
+  {
+    "username": "james",
+    "password": "$2b$10$gjuO3cLEUD3OQHmrvdkSFO/jHirn6TFJ9wZEYKBJ1ZgfUee84U7my"
+  },
+  {
+    "username": "huey",
+    "password": "$2b$10$hgxqLvoJp66cxxYLRqfvk.r/7Uz28bHusd6hOLEm9GJWuWkmfHE.S"
+  },
+  {
+    "username": "jkaddu@yahoo.com",
+    "password": "$2b$10$b3BHJYwFrk18StHR1t7a0O89vQ09SnQAfVIkVayUY3BnsqBIMYwYu"
+  }
+]

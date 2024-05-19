@@ -8,16 +8,18 @@ const usersDB = {
 const bcrypt = require("bcrypt");
 
 const handleLogin = async (req, res) => {
-  const { user, password } = req.body;
+  const { username, password } = req.body;
 
-  if (!user || !password)
+  if (!username || !password)
     return res.status(400).json({ message: "Username and password required." });
-  const foundUser = usersDB.users.find((person) => person.username === user);
+  const foundUser = usersDB.users.find(
+    (person) => person.username === username
+  );
   if (!foundUser) return res.sendStatus(401);
 
   const match = await bcrypt.compare(password, foundUser.password);
   if (match) {
-    res.json({ success: `User ${user} is logged in.` });
+    res.json({ success: `${username} is logged in.` });
   } else {
     res.sendStatus(401);
   }

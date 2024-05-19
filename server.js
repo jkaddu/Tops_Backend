@@ -2,17 +2,21 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require("cors");
+const corsOptions = require("./config/corsOptions");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const PORT = process.env.PORT || 3000;
 
 app.use(logger);
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
+
+// serve static files aka applies the css,image or images and text
+app.use("/", express.static(path.join(__dirname, "/public")));
 
 // ROUTES
 app.use("/auth", require("./routes/auth"));

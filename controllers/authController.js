@@ -1,9 +1,6 @@
 const User = require("../model/User");
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const fsPromises = require("node:fs/promises");
-const path = require("path");
 
 const handleLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -29,11 +26,12 @@ const handleLogin = async (req, res) => {
     // Saves refreshToken with currentUser
     foundUser.refreshToken = refreshToken;
     const result = await foundUser.save();
+    console.log(result);
     // Sends cookie that last for a day
     res.cookie("jwt", refreshToken, {
       httpOnly: true,
       sameSite: "None",
-      secure: true,
+      // secure: true,
       maxAge: 24 * 60 * 60 * 1000,
     });
     res.json({ accessToken });

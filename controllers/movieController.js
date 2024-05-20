@@ -1,61 +1,51 @@
-const movieDB = {
-  movies: require("../model/movies.json"),
-  setMovies: function (data) {
-    this.movies = data;
-  },
+const Movie = require("../model/Movie");
+
+const getAllMovies = async (req, res) => {
+  const movies = await Movie.find();
+  if (!movies) return res.status(204).json({ message: "No movies found" });
+  res.json(movies);
 };
 
-const getAllMovies = (req, res) => {
-  res.json(movieDB.movies);
-};
+const createMovie = async (req, res) => {
+  if (!req?.body?.name)
+    return res.status(400).json({ message: "Moveie name required!" });
 
-const createMovie = (req, res) => {
-  const newMovie = {
-    id: movieDB.movies?.length
-      ? movieDB.movies[movieDB.movies.length - 1].id + 1
-      : 1,
-    name: req.body.name,
-  };
-
-  if (!newMovie.name) {
-    return res.status(400).json({ message: "Movie name is required!" });
+  try {
+    const result = await Movie.create({
+      name: req.body.name,
+    });
+    res.statue(204).json(result);
+  } catch (err) {
+    console.error(err);
   }
-
-  movieDB.setMovies([...movieDB.movies, newMovie]);
-  res.status(201).json(movieDB.movies);
 };
 
-const updateMovie = (req, res) => {
-  const movie = movieDB.movies.find((mov) => mov.id === parseInt(req.body.id));
+const updateMovie = async (req, res) => {
+  if (!req?.body?.id)
+    return res.status(400).json({ message: "ID parameter is required!" });
+  const movie = await Movie.findOne({ _id: req.body.id }).exec();
   if (!movie) {
     return res
       .status(400)
       .json({ message: `Movie ID ${req.body.id} not found.` });
   }
   if (req.body.name) movie.name = req.body.name;
-  const filteredArray = movieDB.movies.filter(
-    (mov) => mov.id !== parseInt(req.body.id)
-  );
-  const unsortedArray = [...filteredArray, movie];
-
-  movieDB.setMovies(
-    unsortedArray.sort((a, b) => (a.id > b.id ? 1 : a.id < b.id ? -1 : 0))
-  );
-  res.json(movieDB.movies);
+  const result = await movie.save();
+  res.json(result);
 };
 
-const deleteMovie = (req, res) => {
-  const movie = movieDB.movies.find((mov) => mov.id === parseInt(req.body.id));
+const deleteMovie = async (req, res) => {
+  if (!req?.body?.id)
+    return res.status(400).json({ message: "Movie ID is required!" });
+
+  const movie = await Movie.findOne({ _id: req.body.id }).exec();
   if (!movie) {
     return res
       .status(400)
-      .json({ message: `Movie ID ${req.body.id} not found.` });
+      .json({ message: `Movie ID ${req.body.id} is not on record.` });
   }
-  const filteredArray = movieDB.movies.filter(
-    (mov) => mov.id !== parseInt(req.body.id)
-  );
-  movieDB.setMovies([...filteredArray]);
-  res.json(movieDB.movies);
+  const result = await Movie.deleteOne({ _id: req.body.id });
+  res.json(result);
 };
 
 module.exports = { createMovie, getAllMovies, updateMovie, deleteMovie };

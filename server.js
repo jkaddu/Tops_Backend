@@ -9,8 +9,12 @@ const errorHandler = require("./middleware/errorHandler");
 const verifyJWT = require("./middleware/verifyJWT");
 const cookieParser = require("cookie-parser");
 const credentials = require("./middleware/credentials");
+const mongoose = require("mongoose");
+const connectDB = require("./config/dbConnect");
 const PORT = process.env.PORT || 3000;
 
+// Connect to MongoDB
+connectDB();
 // custom middleware for logging request
 app.use(logger);
 // handles options credentials check before cors and fetches cookies credentials requirement
@@ -39,4 +43,8 @@ app.use("/users", require("./routes/getUsers"));
 
 // custom middleware for handling errors
 app.use(errorHandler);
-app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+
+mongoose.connection.once("open", () => {
+  console.log("Connected to MongoDB");
+  app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+});

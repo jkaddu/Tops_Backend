@@ -1,12 +1,9 @@
-const usersDB = {
-  users: require("../model/users.json"),
-  setUsers: function (data) {
-    this.users = data;
-  },
-};
+const User = require("../model/User");
 
-const getAllUsers = (req, res) => {
-  res.json(usersDB.users);
+const getAllUsers = async (req, res) => {
+  const users = await User.find();
+  if (!users) return res.status(204).json({ message: "No users found" });
+  res.json(users);
 };
 
 module.exports = { getAllUsers };

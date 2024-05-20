@@ -1,1 +1,2 @@
 20240519	15:32:14	ae954b60-7e19-442c-8068-060b4ebe16c6	TypeError: authHeaders?.startWith is not a function
+20240519	19:18:01	7f7b6e52-569d-4e57-967d-a51fda3bbdaf	TypeError: allowedOrigins.includes is not a function

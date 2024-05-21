@@ -171,3 +171,16 @@
 20240519	23:04:37	d96a0afe-a22e-4103-9de3-1ac3fe8d7d26	GET	undefined	/logout
 20240519	23:08:28	7cf8aace-c388-4ac4-914f-c0ed2ccef823	POST	undefined	/auth
 20240519	23:08:31	0de8ca88-2583-40f0-b233-d8b21dff8f5d	GET	undefined	/logout
+20240520	20:31:51	a35858cc-f8bc-435f-b610-0c0ead89a816	POST	undefined	/movies
+20240520	20:32:18	9c8473ec-4bb0-4cd9-b335-4983bfedddf0	POST	undefined	/auth
+20240520	20:32:37	22cb4d57-c21a-4c80-a2fc-6e7407fcde5c	POST	undefined	/movies
+20240520	20:33:03	c7d2aeaf-4f3b-4d01-aea4-8330303d461b	POST	undefined	/movies
+20240520	20:33:42	8a6ac7f9-af19-4938-8850-6a5a74b68fa3	GET	undefined	/movies
+20240520	20:33:58	37244090-6a78-48d1-8eee-59f73f6874b8	POST	undefined	/movies
+20240520	20:34:01	b253ddef-67b9-495d-b1af-4fdff48dea95	GET	undefined	/movies
+20240520	20:34:43	55edb6cd-de1d-40c8-b2b7-67b88d6f5b78	POST	undefined	/auth
+20240520	20:34:55	631ee923-674b-42a5-aa05-17ecc79b0cd8	PUT	undefined	/movies
+20240520	20:35:05	75f1aa7f-47e1-4fab-8bc9-4e90ded62de7	PUT	undefined	/movies
+20240520	20:35:17	15a30739-fea2-4781-8b8e-9342e4f58150	GET	undefined	/movies
+20240520	20:36:01	917f1e7a-63c4-4d40-bd07-c3ba6e83b06c	DELETE	undefined	/movies
+20240520	20:36:05	ae4ee627-3ee3-4e16-b353-445f7cdd8179	GET	undefined	/movies

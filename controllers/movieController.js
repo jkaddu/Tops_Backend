@@ -14,7 +14,7 @@ const createMovie = async (req, res) => {
     const result = await Movie.create({
       name: req.body.name,
     });
-    res.statue(204).json(result);
+    res.status(204).json(result);
   } catch (err) {
     console.error(err);
   }

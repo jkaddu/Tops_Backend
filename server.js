@@ -39,7 +39,7 @@ app.use("/logout", require("./routes/logout"));
 
 app.use(verifyJWT);
 app.use("/movies", require("./routes/movieAPI/movies"));
-app.use("/users", require("./routes/getUsers"));
+app.use("/users", require("./routes/userAPI/users"));
 
 // custom middleware for handling errors
 app.use(errorHandler);

@@ -1,3 +1,5 @@
 20240519	15:32:14	ae954b60-7e19-442c-8068-060b4ebe16c6	TypeError: authHeaders?.startWith is not a function
 20240519	19:18:01	7f7b6e52-569d-4e57-967d-a51fda3bbdaf	TypeError: allowedOrigins.includes is not a function
 20240520	20:34:55	d10afc80-557f-4f68-b9e8-9ced619f395d	SyntaxError: Expected ',' or '}' after property value in JSON at position 13
+20240522	11:14:00	8bc4d933-b51d-451f-a2a8-3abd7138355b	Error: Not allowed by cors
+20240522	11:46:09	49bb4465-a413-4e96-a3c2-828ff929ba52	Error: Not allowed by cors

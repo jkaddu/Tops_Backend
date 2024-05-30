@@ -1,6 +1,6 @@
 const User = require("../model/User");
 
-const getAllUsers = async (req, res) => {
+const getUsers = async (req, res) => {
   const users = await User.find();
   if (!users) return res.status(204).json({ message: "No users found" });
   res.json(users);
@@ -44,4 +44,4 @@ const deleteUser = async (req, res) => {
   res.json(result);
 };
 
-module.exports = { getAllUsers, getUser, updateUsername, deleteUser };
+module.exports = { getUsers, getUser, updateUsername, deleteUser };

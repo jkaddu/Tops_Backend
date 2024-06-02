@@ -4,6 +4,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
   "https://glitch.com/edit/#!/tops-movie",
+  "https://tops-backend.fly.dev",
 ];
 
 module.exports = allowedOrigins;

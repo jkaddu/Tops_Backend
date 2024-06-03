@@ -4,7 +4,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
   "https://tops-backend.onrender.com",
-  "https://create-react-app-seven-drab.vercel.app/",
+  "https://create-react-app-seven-drab.vercel.app",
 ];
 
 module.exports = allowedOrigins;

@@ -3,8 +3,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5500",
   "http://localhost:3000",
   "http://localhost:3001",
-  "https://glitch.com/edit/#!/tops-movie",
-  "https://tops-backend.fly.dev",
+  "https://tops-backend.onrender.com",
 ];
 
 module.exports = allowedOrigins;
